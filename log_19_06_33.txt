@@ -1,0 +1,11 @@
+Time         topic/action         qos      payload                       
+19:06:33     Subscribed           (1,)    
+19:06:33     Subscribed           (1,)    
+19:06:33     Subscribed           (1,)    
+
+19:06:57     deploy/stop          1        b'STOP'                       
+19:06:57     deploy/lastwill      1        b'WBT-pub-1 Gone Offline'     
+19:06:57     deploy/log           1        b'STOP, test finished, messages received on deploy/topic: 28'
+19:06:59     deploy/lastwill      1        b'Test-station-ID65 Gone Offline'
+
+19:07:00     LOG END             
