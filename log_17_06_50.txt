@@ -1,0 +1,10 @@
+
+17:06:50 Subscribed: 1 (1,)
+17:06:50 Subscribed: 2 (1,)
+17:06:50 Subscribed: 3 (1,)
+17:07:15 deploy/stop 1	b'STOP'
+17:07:15 deploy/lastwill 1	b'WBT-pub-1 Gone Offline'
+17:07:15 deploy/log 1	b'STOP, test finished, messages received on deploy/topic: 28'
+17:07:17 deploy/lastwill 1	b'Test-station-22 Gone Offline'
+
+17:07:22 LOG END
