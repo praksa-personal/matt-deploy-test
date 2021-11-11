@@ -1,0 +1,4 @@
+build
+gui.spec
+_pycache_
+__pycache__/*
