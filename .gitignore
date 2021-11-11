@@ -2,3 +2,6 @@ build
 gui.spec
 _pycache_
 __pycache__/*
+logs
+logs/*
+logs/11112021-121115.txt
