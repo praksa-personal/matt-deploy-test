@@ -26,11 +26,11 @@ client.will_set("deploy/lastwill", this_client_id+ " Gone Offline",qos=1,retain=
 client.connect(host=host_ip, port=1883)
 client.loop_start()
 
-for i in range(9):
+for i in range(33):
     (rc, mid) = client.publish("deploy/topic-1", str(data_json), qos=1)
     (rc, mid) = client.publish("deploy/topic-2", str(data_json), qos=1)
     (rc, mid) = client.publish("deploy/topic-3", str(data_json), qos=1)
-    sleep(1)
+    sleep(0.5)
 
 sleep(5)
 (rc, mid) = client.publish("deploy/stop", "STOP", qos=1)

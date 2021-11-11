@@ -52,3 +52,9 @@ sleep(2)
 
 
 client.loop_stop()
+
+
+# if __name__ == '__main__':
+
+#     from pyforms import start_app
+#     start_app(ComputerVisionAlgorithm)
