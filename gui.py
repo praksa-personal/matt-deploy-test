@@ -73,11 +73,15 @@ while True:
     rec_flag = 1
     while(rec_flag):
       event, values = window.read(timeout=1)
+      if event == sg.WIN_CLOSED or event == 'Exit': 
+        break
       ()
 
     sleep(1)
     while(1):
       event, values = window.read(timeout=1)
+      if event == sg.WIN_CLOSED or event == 'Exit': 
+       break
       (rc, mid) = client.publish("deploy/log", str("STOP, test finished, messages received on deploy/topic: " + str(msg_count)), qos=1)
       sleep(5)
       window['progressbar'].UpdateBar(220) 
