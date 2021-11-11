@@ -28,11 +28,14 @@ f.write("\n")
 host_ip = "localhost"  # set to broker ip
 this_client_id = "Log-client"
 
-client = paho.Client(client_id=this_client_id,
-                     clean_session=True, protocol=paho.MQTTv31)
+client = paho.Client(client_id=this_client_id, clean_session=True, protocol=paho.MQTTv31)
 
 client.on_subscribe = on_subscribe
 client.on_message = on_message
+
+client._username = "Logger"
+client._password = "public"
+
 
 client.connect(host=host_ip, port=1883)
 client.subscribe("deploy/lastwill", qos=1)

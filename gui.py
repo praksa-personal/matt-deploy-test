@@ -58,12 +58,15 @@ while True:
     if event == 'Start test':
         host_ip = values[0]
         this_client_id = values[1]
+
+        client = paho.Client(clean_session=True, protocol=paho.MQTTv31)
+
+        client._username = values[2]
+        client._password = values[3]
+
         window['Start test'].update(
             disabled=True, disabled_button_color=("white", "grey"))
         event, values = window.read(timeout=1)
-
-        client = paho.Client(client_id=this_client_id,
-                             clean_session=True, protocol=paho.MQTTv31)
 
         client.will_set("deploy/lastwill", this_client_id +
                         " Gone Offline", qos=1, retain=False)
@@ -77,9 +80,11 @@ while True:
         client.subscribe("deploy/topic-3", qos=1)
         client.subscribe("deploy/stop", qos=1)
 
+        rand_client_id = client._client_id
         client.loop_start()
 
         rec_flag = 1
+        #print(client._client_id)
         while(rec_flag):
             event, values = window.read(timeout=1)
             if event == sg.WIN_CLOSED or event == 'Exit':
@@ -92,7 +97,7 @@ while True:
             if event == sg.WIN_CLOSED or event == 'Exit':
                 break
             (rc, mid) = client.publish("deploy/log",
-                                       str("STOP, test finished, client with ID: " + this_client_id + " received messages on deploy/topic*: " + str(msg_count)), qos=1)
+                                       str("STOP, test finished, client with ID: " + str(rand_client_id) + ", user: " + str(client._username) + " received messages on deploy/topic*: " + str(msg_count)), qos=1)
             sleep(5)
             window['progressbar'].UpdateBar(220)
             client.loop_stop()

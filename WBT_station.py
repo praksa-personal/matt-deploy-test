@@ -18,15 +18,19 @@ data = {
 data_json = json.dumps(data)
 
 host_ip = "localhost"
-this_client_id = "WBT-pub-1"
+this_client_id = ""
 
 
-client = paho.Client(client_id=this_client_id,
+client = paho.Client(
                      clean_session=True, protocol=paho.MQTTv31)
+
+client._username = "wbt"
+client._password = "1234"
 
 client.on_publish = on_publish
 client.will_set("deploy/lastwill", this_client_id +
                 " Gone Offline", qos=1, retain=False)
+
 
 client.connect(host=host_ip, port=1883)
 client.loop_start()
