@@ -16,8 +16,8 @@ def on_message(client, userdata, msg):
     f.write("\n%-12s %-20s %-8s %-30s" % (t, msg.topic,str(msg.qos),str(msg.payload)))
 
 now = datetime.now()
-dt_string = now.strftime("%H_%M_%S")
-f = open("log_"+dt_string+".txt", "w")
+dt_string = now.strftime("%d%m%Y-%H%M%S")
+f = open("logs/"+dt_string+".txt", "w")
 f.write("%-12s %-20s %-8s %-30s" % ("Time", "topic/action","qos","payload"))
 f.write("\n")
 

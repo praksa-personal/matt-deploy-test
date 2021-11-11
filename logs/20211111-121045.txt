@@ -1,0 +1,7 @@
+Time         topic/action         qos      payload                       
+12:10:45     Subscribed           (1,)    
+12:10:45     Subscribed           (1,)    
+12:10:45     Subscribed           (1,)    
+
+
+12:11:13     LOG END             
