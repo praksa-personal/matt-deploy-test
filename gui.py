@@ -92,7 +92,7 @@ while True:
             if event == sg.WIN_CLOSED or event == 'Exit':
                 break
             (rc, mid) = client.publish("deploy/log",
-                                       str("STOP, test finished, messages received on deploy/topic: " + str(msg_count)), qos=1)
+                                       str("STOP, test finished, client with ID: " + this_client_id + " received messages on deploy/topic*: " + str(msg_count)), qos=1)
             sleep(5)
             window['progressbar'].UpdateBar(220)
             client.loop_stop()
